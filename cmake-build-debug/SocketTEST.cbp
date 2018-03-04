@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SocketTEST"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SocketTEST">
+				<Option output="/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/SocketTEST" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 SocketTEST"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SocketTEST/fast">
+				<Option output="/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/SocketTEST" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 SocketTEST/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Client.cpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Client.hpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Exceptions.hpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Misc.hpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/NetSock.cpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/NetSock.h">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Packet.hpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Server.cpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Server.hpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/main.cpp">
+			<Option target="SocketTEST"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

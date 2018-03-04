@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -g   CMakeFiles/SocketTEST.dir/main.cpp.o CMakeFiles/SocketTEST.dir/NetSock.cpp.o CMakeFiles/SocketTEST.dir/Server.cpp.o CMakeFiles/SocketTEST.dir/Client.cpp.o  -o SocketTEST 

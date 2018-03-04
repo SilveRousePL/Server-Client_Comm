@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -g   CMakeFiles/Server-Client_Comm.dir/main.cpp.o CMakeFiles/Server-Client_Comm.dir/NetSock.cpp.o CMakeFiles/Server-Client_Comm.dir/Server.cpp.o CMakeFiles/Server-Client_Comm.dir/Client.cpp.o  -o Server-Client_Comm 
