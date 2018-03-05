@@ -70,7 +70,7 @@ void CSCommonPart::receivePacket() {
     char * buffer = new char[buffer_size];
 
     int p_size = socket->ReadUDP(buffer, buffer_size, srcHost, &srcPort);
-    buffer[p_size-1] = 0;
+    if(buffer[p_size-1] == '\n') buffer[p_size-1] = 0;
     buffer_str = buffer;
     delete [] buffer;
 
