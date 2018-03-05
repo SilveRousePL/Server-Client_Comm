@@ -41,7 +41,7 @@ class NetSock
 {
 private:
   unsigned int    ip;
-  unsigned short  port;
+  uint16_t  port;
 
   unsigned int    bindip;
   unsigned int    bindport;
@@ -60,15 +60,15 @@ public:
   static const int SYNCHRONIC;
   static const int ASYNCHRONIC;
 
-  bool ListenUDP(unsigned short bindport, const char *bindhost);
-  bool ListenAllUDP(unsigned short bindport);
+  bool ListenUDP(uint16_t bindport, const char *bindhost);
+  bool ListenAllUDP(uint16_t bindport);
 
-  bool Connect(const char* host, unsigned short port);
-  bool Connect(unsigned int ip, unsigned short port);
+  bool Connect(const char* host, uint16_t port);
+  bool Connect(unsigned int ip, uint16_t port);
   bool SetMode(int mode);
   bool Disconnect();
-  bool Listen(unsigned short port, const char *bindip);
-  bool ListenAll(unsigned short port);
+  bool Listen(uint16_t port, const char *bindip);
+  bool ListenAll(uint16_t port);
   NetSock *Accept();
   int Read(void *Buffer, int Size);
 
@@ -82,15 +82,15 @@ public:
   // Use BroadcastUDP to send packets to broadcast addresses.
   // Due to some change in Windows 7 BroadcastUDP cannot use 255.255.255.255 as source address,
   // currently you need to use an interface specific broadcast address (e.g. 192.168.1.255).
-  int WriteUDP(const char* host, unsigned short port, const void *buffer, int size);
-  int BroadcastUDP(const char* broadcast, unsigned short port, const void *buffer, int size);
-  int ReadUDP(void *buffer, int size, char *srchost, unsigned short *srcport);
+  int WriteUDP(const char* host, uint16_t port, const void *buffer, int size);
+  int BroadcastUDP(const char* broadcast, uint16_t port, const void *buffer, int size);
+  int ReadUDP(void *buffer, int size, char *srchost, uint16_t *srcport);
 
-  unsigned short GetPort() const;
+  uint16_t GetPort() const;
   unsigned int GetIP() const;
   const char *GetStrIP();
 
-  unsigned short GetBindPort() const;
+  uint16_t GetBindPort() const;
   unsigned int GetBindIP() const;
   const char *GetStrBindIP();
 

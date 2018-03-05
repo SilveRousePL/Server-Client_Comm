@@ -14,4 +14,4 @@ add_executable(Server-Client_Comm
         Client.hpp
         Packet.hpp
         Misc.hpp
-        Exceptions.hpp)
+        Exceptions.hpp CSCommonPart.cpp CSCommonPart.hpp)

@@ -87,13 +87,43 @@ NetSock::InitNetworking(void)
 }
 
 bool
-NetSock::ListenUDP(unsigned short bindport, const char *bindhost)
+NetSock::ListenUDP(uint16_t bindport, const char *bindhost)
 {
   int ret;
   sockaddr_in desc;
 
   desc.sin_family = AF_INET;
-  desc.sin_addr.s_addr = inet_addr(bindhost); // TODO: fix this
+  //desc.sin_addr.s_addr = inet_addr(bindhost); // TODO: fix this
+  desc.sin_port = htons(bindport);
+  memset(desc.sin_zero, 0, sizeof(desc.sin_zero));
+
+  ret = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  if(ret == -1)
+    return false;
+
+    if(inet_aton(bindhost , &desc.sin_addr) == 0) return false;
+
+  this->socket = ret;
+  this->bindport = bindport;
+  this->bindip = htonl(desc.sin_addr.s_addr);
+
+  this->isUDP = true;
+
+  // bind ip it!
+  if(bind(this->socket, (sockaddr*)&desc, sizeof(sockaddr)) == -1)
+    return false;
+
+  return true;
+}
+
+bool
+NetSock::ListenAllUDP(uint16_t bindport) //Modify
+{
+  int ret;
+  sockaddr_in desc;
+
+  desc.sin_family = AF_INET;
+  desc.sin_addr.s_addr = inet_addr("0.0.0.0");
   desc.sin_port = htons(bindport);
   memset(desc.sin_zero, 0, sizeof(desc.sin_zero));
 
@@ -115,13 +145,7 @@ NetSock::ListenUDP(unsigned short bindport, const char *bindhost)
 }
 
 bool
-NetSock::ListenAllUDP(unsigned short bindport)
-{
-  return this->ListenUDP(bindport, "0.0.0.0");
-}
-
-bool
-NetSock::Listen(unsigned short port, const char *bindip)
+NetSock::Listen(uint16_t port, const char *bindip)
 {
   sockaddr_in desc;
   int ret;
@@ -146,7 +170,7 @@ NetSock::Listen(unsigned short port, const char *bindip)
 }
 
 bool
-NetSock::ListenAll(unsigned short port)
+NetSock::ListenAll(uint16_t port)
 {
   sockaddr_in desc;
   int ret;
@@ -195,7 +219,7 @@ NetSock::Accept()
 }
 
 bool
-NetSock::Connect(const char* host, unsigned short port)
+NetSock::Connect(const char* host, uint16_t port)
 {
   unsigned int ip;
 
@@ -216,7 +240,7 @@ NetSock::Connect(const char* host, unsigned short port)
 }
 
 bool 
-NetSock::Connect(unsigned int ip, unsigned short port)
+NetSock::Connect(unsigned int ip, uint16_t port)
 {
   struct sockaddr_in sock_info;
   int ret, sock = -1;
@@ -367,7 +391,7 @@ NetSock::WriteAll(const void *Buffer, int Size)
 }
 
 
-unsigned short 
+uint16_t
 NetSock::GetPort() const
 {
   return this->port;
@@ -391,7 +415,7 @@ NetSock::GetStrIP()
   return this->str_ip;
 }
 
-unsigned short 
+uint16_t
 NetSock::GetBindPort() const
 {
   return this->bindport;
@@ -416,7 +440,7 @@ NetSock::GetStrBindIP()
 }
 
 int
-NetSock::BroadcastUDP(const char* broadcast, unsigned short port, const void *buffer, int size)
+NetSock::BroadcastUDP(const char* broadcast, uint16_t port, const void *buffer, int size)
 {
   // Sanity check
   if(this->socket == -1)
@@ -462,7 +486,7 @@ NetSock::BroadcastUDP(const char* broadcast, unsigned short port, const void *bu
 }
 
 int
-NetSock::WriteUDP(const char* host, unsigned short port, const void *buffer, int size)
+NetSock::WriteUDP(const char* host, uint16_t port, const void *buffer, int size)
 {
   // Sanity check
   if(this->socket == -1)
@@ -487,7 +511,7 @@ NetSock::WriteUDP(const char* host, unsigned short port, const void *buffer, int
 }
 
 int 
-NetSock::ReadUDP(void *buffer, int size, char *srchost, unsigned short *srcport)
+NetSock::ReadUDP(void *buffer, int size, char *srchost, uint16_t *srcport)
 {
   // Sanity check
   if(this->socket == -1)

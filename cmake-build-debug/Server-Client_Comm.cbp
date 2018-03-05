@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/CSCommonPart.cpp">
+			<Option target="Server-Client_Comm"/>
+		</Unit>
+		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/CSCommonPart.hpp">
+			<Option target="Server-Client_Comm"/>
+		</Unit>
 		<Unit filename="/home/darek/CLionProjects/Server-Client_Comm/Client.cpp">
 			<Option target="Server-Client_Comm"/>
 		</Unit>

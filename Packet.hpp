@@ -10,11 +10,11 @@
 class Packet {
 public:
     std::string host;
-    unsigned short port;
+    uint16_t port;
     std::string time;
     std::string data;
 
-    Packet(std::string host="", unsigned short port=0, std::string time="", std::string data="")
+    Packet(std::string host="", uint16_t port=0, std::string time="", std::string data="")
             : host(host), port(port), time(time), data(data) {}
     ~Packet() {}
 

@@ -3,41 +3,20 @@
 //
 
 #pragma once
-#include <thread>
-#include <unistd.h>
-#include <mutex>
-#include <exception>
-#include "NetSock.h"
-#include "Exceptions.hpp"
-#include "Packet.hpp"
+#include "CSCommonPart.hpp"
 
-class Server {
-
-    std::thread * thread;
-    NetSock * socket;
-    unsigned short port;
-    size_t buffer_size;
-
-    bool p_unread;
-    Packet packet;
-
-    std::mutex mtx;
-    std::exception_ptr excpt;
+class Server : public CSCommonPart {
+    uint16_t server_port;
+    std::string last_client_ip;
+    uint16_t last_client_port;
 
 public:
-    Server(unsigned short port);
-    ~Server();
+    Server(uint16_t port);
+    virtual ~Server();
 
-    bool isUnread();
     Packet readPacket();
+    Packet popPacket();
 
-    void sendPacket(std::string host, unsigned short port, std::string message);
-
-    unsigned short getPort();
-
-
-private:
-    void run();
-    // std::string host, unsigned short port, std::string time, char* data
-    void setPacket(Packet p);
+    std::string getLastClientIP();
+    uint16_t getLastClientPort();
 };

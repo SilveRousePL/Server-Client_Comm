@@ -1,29 +1,29 @@
 #include <iostream>
 #include <unistd.h>
 #include "Server.hpp"
-#include "Exceptions.hpp"
 #include "Client.hpp"
+#include "Exceptions.hpp"
 
 using namespace std;
 
-void f_client(string ip, unsigned short port) {
-    NetSock socket;
-    unsigned char buffer[255] = {0};
-
-    /*if (!socket.Connect(ip.c_str(), port)) {
-        cout << "Błąd połączenia z serwerem!" << endl;
-        return;
-    }*/
-    socket.ListenUDP(0, "0.0.0.0");
-    // Write some ASCII string.
+void thr_read_s(Server* s) {
     while(true) {
-        string m;
-        getline(cin,m);
-        m+="\n";
-        std::cin.clear();
-        int ret = socket.WriteUDP(ip.c_str(), port, m.c_str(), m.length());
-        if (ret != m.length()) {
-            cout << "Błąd wysyłania! " << endl;
+        if(s->isAnyPacket() == false) continue;
+        Packet p = s->popPacket();
+        cout << p << endl;
+        if(p.data == "HELLO") {
+            s->sendPacket("HELLO FROM SERVER!", p.host, p.port);
+        }
+    }
+}
+
+void thr_read_c(Client* c) {
+    while(true) {
+        if(c->isAnyPacket() == false) continue;
+        Packet p = c->popPacket();
+        cout << p << endl;
+        if(p.data == "HELLO") {
+            c->sendPacket("HELLO FROM CLIENT!");
         }
     }
 }
@@ -31,32 +31,31 @@ void f_client(string ip, unsigned short port) {
 int main(int argc, const char** argv) {
     Server* server;
     Client* client;
-    std::thread* t1;
+
+    thread* thr;
 
     int nr = 0;
     cout << "1 - Klient\n2 - Serwer" << endl;
     cin >> nr;
     std::cin.clear();
     std::cin.ignore(10,'\n');
-    switch(nr) {
-        case 1:
-            client = new Client("127.0.0.1", 1333);
-            while(true) {
-                cout << "Jestem klientem!" << endl;
-                usleep(60000000);
-            }
-        case 2:
-            server = new Server(1333);
-            while(true) {
-                if(!server->isUnread()) continue;
-                Packet p = server->readPacket();
-                cout << p << endl;
-                if(p.data == "HELLO") {
-                    server->sendPacket(p.host, p.port, "HELLO FROM SERVER!");
-                }
 
-                //cout << "Jestem serwerem!" << endl;
-                //usleep(60000000);
+    switch(nr) {
+        case 1: //CLIENT
+            client = new Client("127.0.0.1", 1333);
+            thr = new thread(thr_read_c, client);
+            while(true) {
+                std::string m;
+                getline(std::cin, m);
+                client->sendPacket(m);
+            }
+        case 2: //SERVER
+            server = new Server(1333);
+            thr = new thread(thr_read_s, server);
+            while(true) {
+                std::string m;
+                getline(std::cin, m);
+                server->sendPacket(m, server->getLastClientIP(), server->getLastClientPort());
             }
         default:
             cout << "Niepoprawna opcja!" << endl;
@@ -125,5 +124,27 @@ int main(int argc, const char** argv) {
         cout << Misc::currentTime("%T: ") << buffer;
     }
     */
+
+    /*void f_client(string ip, uint16_t port) {
+        NetSock socket;
+        unsigned char buffer[255] = {0};
+
+        *//*if (!socket.Connect(ip.c_str(), port)) {
+            cout << "Błąd połączenia z serwerem!" << endl;
+            return;
+        }*//*
+        socket.ListenUDP(0, "0.0.0.0");
+        // Write some ASCII string.
+        while(true) {
+            string m;
+            getline(cin,m);
+            m+="\n";
+            std::cin.clear();
+            int ret = socket.WriteUDP(ip.c_str(), port, m.c_str(), m.length());
+            if (ret != m.length()) {
+                cout << "Błąd wysyłania! " << endl;
+            }
+        }
+    } */
     return 10;
 }

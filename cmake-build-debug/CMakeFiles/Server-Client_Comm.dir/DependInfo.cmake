@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/darek/CLionProjects/Server-Client_Comm/CSCommonPart.cpp" "/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/CMakeFiles/Server-Client_Comm.dir/CSCommonPart.cpp.o"
   "/home/darek/CLionProjects/Server-Client_Comm/Client.cpp" "/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/CMakeFiles/Server-Client_Comm.dir/Client.cpp.o"
   "/home/darek/CLionProjects/Server-Client_Comm/NetSock.cpp" "/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/CMakeFiles/Server-Client_Comm.dir/NetSock.cpp.o"
   "/home/darek/CLionProjects/Server-Client_Comm/Server.cpp" "/home/darek/CLionProjects/Server-Client_Comm/cmake-build-debug/CMakeFiles/Server-Client_Comm.dir/Server.cpp.o"

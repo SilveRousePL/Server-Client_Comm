@@ -123,6 +123,33 @@ Server-Client_Comm/fast:
 	$(MAKE) -f CMakeFiles/Server-Client_Comm.dir/build.make CMakeFiles/Server-Client_Comm.dir/build
 .PHONY : Server-Client_Comm/fast
 
+CSCommonPart.o: CSCommonPart.cpp.o
+
+.PHONY : CSCommonPart.o
+
+# target to build an object file
+CSCommonPart.cpp.o:
+	$(MAKE) -f CMakeFiles/Server-Client_Comm.dir/build.make CMakeFiles/Server-Client_Comm.dir/CSCommonPart.cpp.o
+.PHONY : CSCommonPart.cpp.o
+
+CSCommonPart.i: CSCommonPart.cpp.i
+
+.PHONY : CSCommonPart.i
+
+# target to preprocess a source file
+CSCommonPart.cpp.i:
+	$(MAKE) -f CMakeFiles/Server-Client_Comm.dir/build.make CMakeFiles/Server-Client_Comm.dir/CSCommonPart.cpp.i
+.PHONY : CSCommonPart.cpp.i
+
+CSCommonPart.s: CSCommonPart.cpp.s
+
+.PHONY : CSCommonPart.s
+
+# target to generate assembly for a file
+CSCommonPart.cpp.s:
+	$(MAKE) -f CMakeFiles/Server-Client_Comm.dir/build.make CMakeFiles/Server-Client_Comm.dir/CSCommonPart.cpp.s
+.PHONY : CSCommonPart.cpp.s
+
 Client.o: Client.cpp.o
 
 .PHONY : Client.o
@@ -240,6 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Server-Client_Comm"
+	@echo "... CSCommonPart.o"
+	@echo "... CSCommonPart.i"
+	@echo "... CSCommonPart.s"
 	@echo "... Client.o"
 	@echo "... Client.i"
 	@echo "... Client.s"
