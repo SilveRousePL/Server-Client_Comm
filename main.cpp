@@ -1,3 +1,8 @@
+/*
+ * Server-Client Communicator C++
+ * TODO: Refactor NetSock library
+ */
+
 #include <iostream>
 #include <unistd.h>
 #include "Server.hpp"

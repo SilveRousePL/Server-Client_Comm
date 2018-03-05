@@ -89,11 +89,11 @@ NetSock::InitNetworking(void)
 bool
 NetSock::ListenUDP(uint16_t bindport, const char *bindhost)
 {
-  int ret;
+    int ret;
   sockaddr_in desc;
 
   desc.sin_family = AF_INET;
-  //desc.sin_addr.s_addr = inet_addr(bindhost); // TODO: fix this
+  desc.sin_addr.s_addr = inet_addr(bindhost); // TODO: fix this
   desc.sin_port = htons(bindport);
   memset(desc.sin_zero, 0, sizeof(desc.sin_zero));
 
@@ -101,16 +101,13 @@ NetSock::ListenUDP(uint16_t bindport, const char *bindhost)
   if(ret == -1)
     return false;
 
-    if(inet_aton(bindhost , &desc.sin_addr) == 0) return false;
-
   this->socket = ret;
   this->bindport = bindport;
   this->bindip = htonl(desc.sin_addr.s_addr);
 
   this->isUDP = true;
 
-  // bind ip it!
-  if(bind(this->socket, (sockaddr*)&desc, sizeof(sockaddr)) == -1)
+  if(connect(this->socket, (sockaddr*)&desc, sizeof(sockaddr)) == -1)
     return false;
 
   return true;
