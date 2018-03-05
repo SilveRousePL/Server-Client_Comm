@@ -4,7 +4,6 @@
 
 #include "Server.hpp"
 
-
 Server::Server(uint16_t port) : CSCommonPart(), server_port(port) {
     if (!socket->ListenAllUDP(server_port))
         throw SocketException("Błąd przy tworzeniu serwera, sprawdź czy inna aplikacja nie używa danego portu");

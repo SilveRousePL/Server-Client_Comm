@@ -1,3 +1,5 @@
+/// DT: TODO: Refactor NetSock library
+//
 // NetSock winsock helper class
 // code by gynvael.coldwind//vx
 // http://gynvael.vexillium.org
@@ -23,6 +25,7 @@
 //   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
+//
 //
 #if defined(_WIN32) && !defined(WIN32)
 #  define WIN32
@@ -114,7 +117,7 @@ NetSock::ListenUDP(uint16_t bindport, const char *bindhost)
 }
 
 bool
-NetSock::ListenAllUDP(uint16_t bindport) //Modify
+NetSock::ListenAllUDP(uint16_t bindport) //Modified
 {
   int ret;
   sockaddr_in desc;

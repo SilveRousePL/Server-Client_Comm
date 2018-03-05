@@ -42,7 +42,7 @@ Packet CSCommonPart::readPacket() {
 }
 
 void CSCommonPart::pushPacket(Packet packet) {
-    if(packets.size() >= 1024) return;
+    if(packets.size() >= 1024) return; // Ograniczenie ilości elementów
     this->mtx.lock();
     packets.push(packet);
     this->mtx.unlock();

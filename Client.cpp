@@ -14,6 +14,6 @@ Client::~Client() {
 
 }
 
-void Client::sendPacket(std::string message) {
-    CSCommonPart::sendPacket(message, this->server_ip, this->server_port);
+int32_t Client::sendPacket(std::string message) {
+    return CSCommonPart::sendPacket(message, this->server_ip, this->server_port);
 }

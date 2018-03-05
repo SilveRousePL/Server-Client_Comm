@@ -16,8 +16,11 @@
 class CSCommonPart {
 protected:
     std::thread * thread;
-    NetSock * socket; //Socket from NetSock library
+    /// Socket from NetSock library.
+    NetSock * socket;
+    /// Char buffer to read data.
     size_t buffer_size;
+    /// Packet queue.
     std::queue<Packet> packets;
 
     std::mutex mtx;
@@ -26,15 +29,39 @@ protected:
 public:
     CSCommonPart();
     ~CSCommonPart();
-
+    /*!
+     * Method check are there any packets in queue.
+     * @return True if exists, false in the second case.
+     */
     bool isAnyPacket();
+    /*!
+     * Method read packet from queue without remove it.
+     * @return Packet from queue.
+     */
     Packet readPacket();
+    /*!
+     * Method read packet from queue and remove it.
+     * @return Packet from queue.
+     */
     Packet popPacket();
-    int32_t sendPacket(std::string message, std::string host, uint16_t port); //RETURN 0: Sukces
+    /*!
+     * Method sends data to client or other server.
+     * @param message Text string to send.
+     * @param host IP address receiver.
+     * @param port Receiver port.
+     * @return 0 - Success; Other value - Error.
+     */
+    int32_t sendPacket(std::string message, std::string host, uint16_t port);
+    /// Method runs in a separate thread
     void run();
-protected:
 
+protected:
+    /// Method receive packet from remote host.
     void receivePacket();
+    /*!
+     * Method adds packet to queue.
+     * @param packet Packet to add.
+     */
     void pushPacket(Packet packet);
 
 };
